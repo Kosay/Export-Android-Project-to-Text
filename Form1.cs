@@ -77,7 +77,7 @@ namespace Export_Android_Project
 				}
 
 				File.WriteAllText(textBox2.Text, sb.ToString());
-				button2.Enabled = false; 
+				button2.Enabled = false;
 				button3.Enabled = false;
 				MessageBox.Show("Files read successfully");
 			}
@@ -85,6 +85,15 @@ namespace Export_Android_Project
 			{
 				MessageBox.Show("Error reading files: " + ex.Message);
 			}
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("This application exports Android project files to a text file.\n\n" +
+				"1. Click 'Select Project Folder' to choose the Android project directory.\n" +
+				"2. Click 'Save Exported Project' to specify where to save the output file.\n" +
+				"3. Click 'Export Files' to read and save the contents of .kt, .kts, and .xml files in the project.\n\n" +
+				"Note: Only Kotlin and XML files are processed.\n\nCreated by Kosay Hatem", "Help");
 		}
 	}
 }
