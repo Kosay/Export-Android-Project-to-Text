@@ -1,16 +1,9 @@
-﻿namespace Export_Android_Project
+namespace Export_Android_Project
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private System.ComponentModel.IContainer? components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,128 +13,207 @@
             base.Dispose(disposing);
         }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			label1 = new Label();
-			textBox1 = new TextBox();
-			button1 = new Button();
-			button2 = new Button();
-			textBox2 = new TextBox();
-			label2 = new Label();
-			button3 = new Button();
-			button4 = new Button();
-			SuspendLayout();
-			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(12, 46);
-			label1.Name = "label1";
-			label1.Size = new Size(44, 15);
-			label1.TabIndex = 0;
-			label1.Text = "Project";
-			// 
-			// textBox1
-			// 
-			textBox1.Enabled = false;
-			textBox1.Location = new Point(58, 43);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(457, 23);
-			textBox1.TabIndex = 1;
-			// 
-			// button1
-			// 
-			button1.Location = new Point(521, 43);
-			button1.Name = "button1";
-			button1.Size = new Size(75, 23);
-			button1.TabIndex = 2;
-			button1.Text = "Browse";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
-			// 
-			// button2
-			// 
-			button2.Enabled = false;
-			button2.Location = new Point(520, 88);
-			button2.Name = "button2";
-			button2.Size = new Size(75, 23);
-			button2.TabIndex = 5;
-			button2.Text = "Browse";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += button2_Click;
-			// 
-			// textBox2
-			// 
-			textBox2.Enabled = false;
-			textBox2.Location = new Point(57, 88);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(457, 23);
-			textBox2.TabIndex = 4;
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Location = new Point(11, 91);
-			label2.Name = "label2";
-			label2.Size = new Size(31, 15);
-			label2.TabIndex = 3;
-			label2.Text = "Save";
-			// 
-			// button3
-			// 
-			button3.Enabled = false;
-			button3.Location = new Point(177, 142);
-			button3.Name = "button3";
-			button3.Size = new Size(75, 23);
-			button3.TabIndex = 6;
-			button3.Text = "Save";
-			button3.UseVisualStyleBackColor = true;
-			button3.Click += button3_Click;
-			// 
-			// button4
-			// 
-			button4.Location = new Point(329, 142);
-			button4.Name = "button4";
-			button4.Size = new Size(75, 23);
-			button4.TabIndex = 7;
-			button4.Text = "About";
-			button4.UseVisualStyleBackColor = true;
-			// 
-			// Form1
-			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
-			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(606, 199);
-			Controls.Add(button4);
-			Controls.Add(button3);
-			Controls.Add(button2);
-			Controls.Add(textBox2);
-			Controls.Add(label2);
-			Controls.Add(button1);
-			Controls.Add(textBox1);
-			Controls.Add(label1);
-			FormBorderStyle = FormBorderStyle.FixedToolWindow;
-			Name = "Form1";
-			Text = "Export Android Project";
-			ResumeLayout(false);
-			PerformLayout();
-		}
+        private void InitializeComponent()
+        {
+            lblSource = new Label();
+            txtSource = new TextBox();
+            btnBrowseSource = new Button();
+            lblOutput = new Label();
+            txtOutput = new TextBox();
+            btnBrowseOutput = new Button();
+            lblExtensions = new Label();
+            clbExtensions = new CheckedListBox();
+            grpOptions = new GroupBox();
+            chkSkipNoise = new CheckBox();
+            chkMarkdown = new CheckBox();
+            lblMaxSize = new Label();
+            numMaxSizeKb = new NumericUpDown();
+            lblTree = new Label();
+            tvProject = new TreeView();
+            progress = new ProgressBar();
+            lblStatus = new Label();
+            btnExport = new Button();
+            btnCancel = new Button();
+            btnAbout = new Button();
+            grpOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numMaxSizeKb).BeginInit();
+            SuspendLayout();
 
-		#endregion
+            // lblSource
+            lblSource.AutoSize = true;
+            lblSource.Location = new Point(12, 15);
+            lblSource.Text = "Project folder:";
 
-		private Label label1;
-		private TextBox textBox1;
-		private Button button1;
-		private Button button2;
-		private TextBox textBox2;
-		private Label label2;
-		private Button button3;
-		private Button button4;
-	}
+            // txtSource
+            txtSource.Location = new Point(110, 12);
+            txtSource.Size = new Size(500, 23);
+            txtSource.ReadOnly = true;
+
+            // btnBrowseSource
+            btnBrowseSource.Location = new Point(616, 11);
+            btnBrowseSource.Size = new Size(80, 25);
+            btnBrowseSource.Text = "Browse...";
+            btnBrowseSource.UseVisualStyleBackColor = true;
+            btnBrowseSource.Click += btnBrowseSource_Click;
+
+            // lblOutput
+            lblOutput.AutoSize = true;
+            lblOutput.Location = new Point(12, 44);
+            lblOutput.Text = "Output file:";
+
+            // txtOutput
+            txtOutput.Location = new Point(110, 41);
+            txtOutput.Size = new Size(500, 23);
+
+            // btnBrowseOutput
+            btnBrowseOutput.Location = new Point(616, 40);
+            btnBrowseOutput.Size = new Size(80, 25);
+            btnBrowseOutput.Text = "Browse...";
+            btnBrowseOutput.UseVisualStyleBackColor = true;
+            btnBrowseOutput.Click += btnBrowseOutput_Click;
+
+            // lblExtensions
+            lblExtensions.AutoSize = true;
+            lblExtensions.Location = new Point(12, 78);
+            lblExtensions.Text = "Extensions:";
+
+            // clbExtensions
+            clbExtensions.Location = new Point(12, 96);
+            clbExtensions.Size = new Size(200, 300);
+            clbExtensions.CheckOnClick = true;
+
+            // grpOptions
+            grpOptions.Location = new Point(12, 402);
+            grpOptions.Size = new Size(200, 130);
+            grpOptions.Text = "Options";
+            grpOptions.Controls.Add(chkSkipNoise);
+            grpOptions.Controls.Add(chkMarkdown);
+            grpOptions.Controls.Add(lblMaxSize);
+            grpOptions.Controls.Add(numMaxSizeKb);
+
+            // chkSkipNoise
+            chkSkipNoise.Location = new Point(10, 22);
+            chkSkipNoise.Size = new Size(180, 20);
+            chkSkipNoise.Text = "Skip noise folders";
+            chkSkipNoise.Checked = true;
+            chkSkipNoise.CheckedChanged += chkSkipNoise_CheckedChanged;
+
+            // chkMarkdown
+            chkMarkdown.Location = new Point(10, 46);
+            chkMarkdown.Size = new Size(180, 20);
+            chkMarkdown.Text = "Markdown output";
+            chkMarkdown.Checked = true;
+
+            // lblMaxSize
+            lblMaxSize.AutoSize = true;
+            lblMaxSize.Location = new Point(10, 76);
+            lblMaxSize.Text = "Max file size (KB):";
+
+            // numMaxSizeKb
+            numMaxSizeKb.Location = new Point(10, 96);
+            numMaxSizeKb.Size = new Size(100, 23);
+            numMaxSizeKb.Minimum = 1;
+            numMaxSizeKb.Maximum = 1000000;
+            numMaxSizeKb.Value = 1024;
+
+            // lblTree
+            lblTree.AutoSize = true;
+            lblTree.Location = new Point(224, 78);
+            lblTree.Text = "Project tree (checking a folder checks everything inside):";
+
+            // tvProject
+            tvProject.Location = new Point(224, 96);
+            tvProject.Size = new Size(472, 436);
+            tvProject.CheckBoxes = true;
+            tvProject.HideSelection = false;
+            tvProject.AfterCheck += tvProject_AfterCheck;
+            tvProject.BeforeExpand += tvProject_BeforeExpand;
+
+            // progress
+            progress.Location = new Point(12, 545);
+            progress.Size = new Size(684, 18);
+
+            // lblStatus
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(12, 570);
+            lblStatus.Text = "Ready";
+
+            // btnExport
+            btnExport.Location = new Point(431, 595);
+            btnExport.Size = new Size(85, 28);
+            btnExport.Text = "Export";
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
+
+            // btnCancel
+            btnCancel.Location = new Point(522, 595);
+            btnCancel.Size = new Size(85, 28);
+            btnCancel.Text = "Cancel";
+            btnCancel.Enabled = false;
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+
+            // btnAbout
+            btnAbout.Location = new Point(613, 595);
+            btnAbout.Size = new Size(85, 28);
+            btnAbout.Text = "About";
+            btnAbout.UseVisualStyleBackColor = true;
+            btnAbout.Click += btnAbout_Click;
+
+            // Form1
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(710, 635);
+            Controls.Add(lblSource);
+            Controls.Add(txtSource);
+            Controls.Add(btnBrowseSource);
+            Controls.Add(lblOutput);
+            Controls.Add(txtOutput);
+            Controls.Add(btnBrowseOutput);
+            Controls.Add(lblExtensions);
+            Controls.Add(clbExtensions);
+            Controls.Add(grpOptions);
+            Controls.Add(lblTree);
+            Controls.Add(tvProject);
+            Controls.Add(progress);
+            Controls.Add(lblStatus);
+            Controls.Add(btnExport);
+            Controls.Add(btnCancel);
+            Controls.Add(btnAbout);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "Form1";
+            Text = "Export Project to Text";
+            grpOptions.ResumeLayout(false);
+            grpOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numMaxSizeKb).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label lblSource = null!;
+        private TextBox txtSource = null!;
+        private Button btnBrowseSource = null!;
+        private Label lblOutput = null!;
+        private TextBox txtOutput = null!;
+        private Button btnBrowseOutput = null!;
+        private Label lblExtensions = null!;
+        private CheckedListBox clbExtensions = null!;
+        private GroupBox grpOptions = null!;
+        private CheckBox chkSkipNoise = null!;
+        private CheckBox chkMarkdown = null!;
+        private Label lblMaxSize = null!;
+        private NumericUpDown numMaxSizeKb = null!;
+        private Label lblTree = null!;
+        private TreeView tvProject = null!;
+        private ProgressBar progress = null!;
+        private Label lblStatus = null!;
+        private Button btnExport = null!;
+        private Button btnCancel = null!;
+        private Button btnAbout = null!;
+    }
 }
