@@ -291,6 +291,59 @@ namespace Export_Android_Project
             }
         }
 
+        private void btnAddExt_Click(object? sender, EventArgs e) => AddExtensionFromInput();
+
+        private void txtNewExt_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                AddExtensionFromInput();
+            }
+        }
+
+        private void AddExtensionFromInput()
+        {
+            var raw = txtNewExt.Text.Trim();
+            if (raw.Length == 0) return;
+
+            foreach (var token in raw.Split(new[] { ',', ';', ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var ext = token.Trim().ToLowerInvariant();
+                if (!ext.StartsWith('.')) ext = "." + ext;
+                if (ext.Length < 2 || ext.Any(c => Path.GetInvalidFileNameChars().Contains(c) || c == ' '))
+                {
+                    MessageBox.Show(this, $"'{token}' is not a valid extension.", "Add extension",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    continue;
+                }
+
+                int existing = -1;
+                for (int i = 0; i < clbExtensions.Items.Count; i++)
+                {
+                    if (string.Equals(clbExtensions.Items[i] as string, ext, StringComparison.OrdinalIgnoreCase))
+                    {
+                        existing = i;
+                        break;
+                    }
+                }
+
+                if (existing >= 0)
+                {
+                    clbExtensions.SetItemChecked(existing, true);
+                    clbExtensions.SelectedIndex = existing;
+                }
+                else
+                {
+                    int idx = clbExtensions.Items.Add(ext, true);
+                    clbExtensions.SelectedIndex = idx;
+                }
+            }
+
+            txtNewExt.Clear();
+            txtNewExt.Focus();
+        }
+
         private void btnCancel_Click(object? sender, EventArgs e) => cts?.Cancel();
 
         private void btnAbout_Click(object? sender, EventArgs e)
@@ -311,6 +364,8 @@ namespace Export_Android_Project
             btnBrowseSource.Enabled = !busy;
             btnBrowseOutput.Enabled = !busy;
             clbExtensions.Enabled = !busy;
+            txtNewExt.Enabled = !busy;
+            btnAddExt.Enabled = !busy;
             tvProject.Enabled = !busy;
             chkSkipNoise.Enabled = !busy;
             chkMarkdown.Enabled = !busy;

@@ -25,6 +25,8 @@ namespace Export_Android_Project
             btnBrowseOutput = new Button();
             lblExtensions = new Label();
             clbExtensions = new CheckedListBox();
+            txtNewExt = new TextBox();
+            btnAddExt = new Button();
             grpOptions = new GroupBox();
             chkSkipNoise = new CheckBox();
             chkMarkdown = new CheckBox();
@@ -81,8 +83,21 @@ namespace Export_Android_Project
 
             // clbExtensions
             clbExtensions.Location = new Point(12, 96);
-            clbExtensions.Size = new Size(200, 300);
+            clbExtensions.Size = new Size(200, 270);
             clbExtensions.CheckOnClick = true;
+
+            // txtNewExt
+            txtNewExt.Location = new Point(12, 371);
+            txtNewExt.Size = new Size(120, 23);
+            txtNewExt.PlaceholderText = ".ext";
+            txtNewExt.KeyDown += txtNewExt_KeyDown;
+
+            // btnAddExt
+            btnAddExt.Location = new Point(137, 370);
+            btnAddExt.Size = new Size(75, 25);
+            btnAddExt.Text = "Add";
+            btnAddExt.UseVisualStyleBackColor = true;
+            btnAddExt.Click += btnAddExt_Click;
 
             // grpOptions
             grpOptions.Location = new Point(12, 402);
@@ -174,6 +189,8 @@ namespace Export_Android_Project
             Controls.Add(btnBrowseOutput);
             Controls.Add(lblExtensions);
             Controls.Add(clbExtensions);
+            Controls.Add(txtNewExt);
+            Controls.Add(btnAddExt);
             Controls.Add(grpOptions);
             Controls.Add(lblTree);
             Controls.Add(tvProject);
@@ -203,6 +220,8 @@ namespace Export_Android_Project
         private Button btnBrowseOutput = null!;
         private Label lblExtensions = null!;
         private CheckedListBox clbExtensions = null!;
+        private TextBox txtNewExt = null!;
+        private Button btnAddExt = null!;
         private GroupBox grpOptions = null!;
         private CheckBox chkSkipNoise = null!;
         private CheckBox chkMarkdown = null!;
